@@ -4,8 +4,10 @@ import java.util.Scanner;
 
 public class Main {
 
+    Scanner scanner = new Scanner(System.in);
+
     public void showMenu() {
-        Scanner scanner = new Scanner(System.in);
+
 
         System.out.println("""
                 Welcome to Screensound!
@@ -23,6 +25,7 @@ public class Main {
 
         switch (option) {
             case 1:
+                registerArtist();
                 break;
             case 2:
                 break;
@@ -35,5 +38,17 @@ public class Main {
             case 9:
                 break;
         }
+    }
+
+    private void registerArtist() {
+        System.out.print("Artist's name:");
+        var name = scanner.nextLine();
+
+        System.out.print("Artist type (solo, duo, band):");
+        var type = scanner.nextLine();
+
+        System.out.print("Register another artist? (Y/N): ");
+        var registerNew = scanner.nextLine();
+
     }
 }
