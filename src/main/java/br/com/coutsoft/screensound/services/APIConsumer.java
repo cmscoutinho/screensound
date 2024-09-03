@@ -5,7 +5,7 @@ import java.net.http.HttpRequest;
 
 public class APIConsumer {
 
-    public String connect() {
+    public String consume() {
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder().build();
 
