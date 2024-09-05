@@ -8,8 +8,11 @@ public class Main {
 
     public void showMenu() {
 
+        int option;
 
-        System.out.println("""
+        do {
+
+            System.out.println("""
                 Welcome to Screensound!
                 Choose an option:
                                 
@@ -20,24 +23,26 @@ public class Main {
                 5-Look for info about artist
                 9-Exit""");
 
-        var option = scanner.nextInt();
-        scanner.nextLine();
+            option = scanner.nextInt();
+            scanner.nextLine();
 
-        switch (option) {
-            case 1:
-                registerArtist();
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-            case 4:
-                break;
-            case 5:
-                break;
-            case 9:
-                break;
-        }
+            switch (option) {
+                case 1:
+                    registerArtist();
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 9:
+                    break;
+            }
+        } while (option != 9);
+
     }
 
     private void registerArtist() {
