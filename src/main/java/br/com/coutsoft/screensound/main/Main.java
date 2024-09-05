@@ -1,10 +1,15 @@
 package br.com.coutsoft.screensound.main;
 
+import br.com.coutsoft.screensound.model.Artist;
+import br.com.coutsoft.screensound.repository.ArtistRepository;
+
 import java.util.Scanner;
 
 public class Main {
 
     Scanner scanner = new Scanner(System.in);
+
+    ArtistRepository repository;
 
     public void showMenu() {
 
@@ -13,15 +18,15 @@ public class Main {
         do {
 
             System.out.println("""
-                Welcome to Screensound!
-                Choose an option:
-                                
-                1-Register artist
-                2-Register song
-                3-List songs
-                4-Search song by artist
-                5-Look for info about artist
-                9-Exit""");
+                    Welcome to Screensound!
+                    Choose an option:
+                                    
+                    1-Register artist
+                    2-Register song
+                    3-List songs
+                    4-Search song by artist
+                    5-Look for info about artist
+                    9-Exit""");
 
             option = scanner.nextInt();
             scanner.nextLine();
@@ -46,14 +51,20 @@ public class Main {
     }
 
     private void registerArtist() {
-        System.out.print("Artist's name:");
-        var name = scanner.nextLine();
+        String registerNew;
 
-        System.out.print("Artist type (solo, duo, band):");
-        var type = scanner.nextLine();
+        do {
+            System.out.print("Artist's name:");
+            var name = scanner.nextLine();
 
-        System.out.print("Register another artist? (Y/N): ");
-        var registerNew = scanner.nextLine();
+            System.out.print("Artist type (solo, duo, band):");
+            var type = scanner.nextLine();
+
+            System.out.print("Register another artist? (Y/N): ");
+            registerNew = scanner.nextLine();
+
+            repository.save(new Artist(name, type));
+        } while (registerNew.equalsIgnoreCase("Y"));
 
     }
 }
