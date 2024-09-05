@@ -9,7 +9,11 @@ public class Main {
 
     Scanner scanner = new Scanner(System.in);
 
-    ArtistRepository repository;
+    private ArtistRepository repository;
+
+    public Main(ArtistRepository repository) {
+        this.repository = repository;
+    }
 
     public void showMenu() {
 
