@@ -2,6 +2,9 @@ package br.com.coutsoft.screensound.model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "artist")
 public class Artist {
@@ -11,6 +14,9 @@ public class Artist {
     @Column(unique = true)
     private String name;
     private String type;
+
+    @OneToMany(mappedBy = "artist", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Song> songs = new ArrayList<>();
 
     public Artist() {
 
