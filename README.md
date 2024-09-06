@@ -39,7 +39,7 @@ Contributions are welcome! Please fork the repository and create a pull request 
 - Open a Pull Request
 
 ## License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under GPL - see the LICENSE file for details.
 
 ## Acknowledgments
 - API Provider for providing music data.
