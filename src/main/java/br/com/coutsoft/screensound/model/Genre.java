@@ -6,5 +6,7 @@ public enum Genre {
     COUNTRY("sertanejo") ,
     PAGODE("pagode");
 
-    private String musicGenre;
+    private String songGenre;
+
+
 }
