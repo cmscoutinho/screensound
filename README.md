@@ -1,6 +1,6 @@
 # ScreenSound
 
-ScreenSound is a Java command-line interface (CLI) application that retrieves information about songs and music artists from an external API and stores the data in a local PostgreSQL database. Users can perform various operations on the stored data, such as searching and filtering.
+ScreenSound is a Java command-line interface (CLI) application that retrieves and stores information about songs and music artists in a local PostgreSQL database. Users can perform various operations on the stored data, such as searching and filtering.
 
 ## Features
 
