@@ -5,4 +5,6 @@ public enum Genre {
     MPB,
     COUNTRY,
     PAGODE;
+
+    private String musicGenre;
 }
