@@ -40,6 +40,7 @@ public class Main {
                     registerArtist();
                     break;
                 case 2:
+                    registerSong();
                     break;
                 case 3:
                     break;
@@ -70,5 +71,8 @@ public class Main {
             repository.save(new Artist(name, type));
         } while (registerNew.equalsIgnoreCase("Y"));
 
+    }
+
+    private void registerSong() {
     }
 }
