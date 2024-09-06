@@ -68,8 +68,16 @@ public class Song {
         this.album = album;
     }
 
+    public Genre getGenre() {
+        return genre;
+    }
+
+    public void setGenre(Genre genre) {
+        this.genre = genre;
+    }
+
     @Override
     public String toString() {
-        return this.title + " by " + this.artist + ". Length: " + this.length;
+        return this.title + " by " + this.artist + ". " + this.genre + ". Length: " + this.length;
     }
 }
