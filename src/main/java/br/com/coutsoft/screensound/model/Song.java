@@ -10,22 +10,20 @@ public class Song {
     private Long id;
     @Column(unique = true)
     private String title;
-    private Integer length;
+    @ManyToOne
+    private Artist artist;
     private String album;
     private Genre genre;
 
-    @ManyToOne
-    private Artist artist;
 
     public Song() {
     }
 
-    public Song(String title, Integer length, String album, Genre genre, Artist artist) {
+    public Song(String title, Artist artist, String album, Genre genre) {
         this.title = title;
-        this.length = length;
+        this.artist = artist;
         this.album = album;
         this.genre = genre;
-        this.artist = artist;
     }
 
     public Long getId() {
@@ -42,14 +40,6 @@ public class Song {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public Integer getLength() {
-        return length;
-    }
-
-    public void setLength(Integer length) {
-        this.length = length;
     }
 
     public Artist getArtist() {
