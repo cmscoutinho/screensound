@@ -1,6 +1,7 @@
 package br.com.coutsoft.screensound.main;
 
 import br.com.coutsoft.screensound.model.Artist;
+import br.com.coutsoft.screensound.model.Song;
 import br.com.coutsoft.screensound.repository.ArtistRepository;
 
 import java.util.Scanner;
@@ -59,10 +60,10 @@ public class Main {
         String registerNew;
 
         do {
-            System.out.print("Artist's name:");
+            System.out.print("Artist's name: ");
             var name = scanner.nextLine();
 
-            System.out.print("Artist type (solo, duo, band):");
+            System.out.print("Artist type (solo, duo, band): ");
             var type = scanner.nextLine();
 
             System.out.print("Register another artist? (Y/N): ");
@@ -74,5 +75,26 @@ public class Main {
     }
 
     private void registerSong() {
+        String registerNew;
+
+        do {
+            System.out.print("Song's title: ");
+            var title = scanner.nextLine();
+
+            System.out.print("Artist: ");
+            var artist = scanner.nextLine();
+
+            System.out.print("Song's album: ");
+            var album = scanner.nextLine();
+
+            System.out.print("Song's genre (rock, mpb, country, pagode): ");
+            var genre = scanner.nextLine().toLowerCase();
+
+            System.out.print("Register another song? (Y/N): ");
+            registerNew = scanner.nextLine();
+
+            repository.save(new Song(title, artist, album, genre));
+        } while (registerNew.equalsIgnoreCase("Y"));
+
     }
 }
