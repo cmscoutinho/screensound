@@ -8,5 +8,7 @@ public enum Genre {
 
     private String songGenre;
 
-
+    Genre(String songGenre) {
+        this.songGenre = songGenre;
+    }
 }
