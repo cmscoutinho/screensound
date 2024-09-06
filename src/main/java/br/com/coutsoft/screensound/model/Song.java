@@ -12,6 +12,7 @@ public class Song {
     private String title;
     private Integer length;
     private String album;
+    private Genre genre;
 
     @ManyToOne
     private Artist artist;
@@ -19,10 +20,11 @@ public class Song {
     public Song() {
     }
 
-    public Song(String title, Integer length, String album, Artist artist) {
+    public Song(String title, Integer length, String album, Genre genre, Artist artist) {
         this.title = title;
         this.length = length;
         this.album = album;
+        this.genre = genre;
         this.artist = artist;
     }
 
