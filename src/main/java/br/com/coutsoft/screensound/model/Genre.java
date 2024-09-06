@@ -1,10 +1,10 @@
 package br.com.coutsoft.screensound.model;
 
 public enum Genre {
-    ROCK,
-    MPB,
-    COUNTRY,
-    PAGODE;
+    ROCK("rock"),
+    MPB("mpb"),
+    COUNTRY("sertanejo") ,
+    PAGODE("pagode");
 
     private String musicGenre;
 }
