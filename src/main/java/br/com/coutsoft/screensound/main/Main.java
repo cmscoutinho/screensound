@@ -1,6 +1,7 @@
 package br.com.coutsoft.screensound.main;
 
 import br.com.coutsoft.screensound.model.Artist;
+import br.com.coutsoft.screensound.model.Genre;
 import br.com.coutsoft.screensound.model.Song;
 import br.com.coutsoft.screensound.repository.ArtistRepository;
 
@@ -93,7 +94,7 @@ public class Main {
             System.out.print("Register another song? (Y/N): ");
             registerNew = scanner.nextLine();
 
-            repository.save(new Song(title, artist, album, genre));
+            repository.save(new Song(title, artist, album, Genre.fromString(genre)));
         } while (registerNew.equalsIgnoreCase("Y"));
 
     }

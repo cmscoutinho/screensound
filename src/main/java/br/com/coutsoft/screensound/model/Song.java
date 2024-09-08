@@ -68,6 +68,6 @@ public class Song {
 
     @Override
     public String toString() {
-        return this.title + " by " + this.artist + ". " + this.genre + ". Length: " + this.length;
+        return this.title + " by " + this.artist + ". " + this.genre;
     }
 }
