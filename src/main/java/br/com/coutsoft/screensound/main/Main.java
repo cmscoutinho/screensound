@@ -1,10 +1,9 @@
 package br.com.coutsoft.screensound.main;
 
 import br.com.coutsoft.screensound.model.Artist;
-import br.com.coutsoft.screensound.model.Genre;
-import br.com.coutsoft.screensound.model.Song;
 import br.com.coutsoft.screensound.repository.ArtistRepository;
 
+import java.util.Optional;
 import java.util.Scanner;
 
 public class Main {
@@ -57,8 +56,9 @@ public class Main {
 
     }
 
-    private Artist searchArtist(String artistStr) {
-
+    private Optional<Artist> searchArtist(String artistStr) {
+        Optional<Artist> artistOpt = repository.findByNameIgnoreCase(artistStr);
+        return artistOpt;
     }
 
     private void registerArtist() {
@@ -89,11 +89,16 @@ public class Main {
             System.out.print("Artist: ");
             var artist = scanner.nextLine();
 
-            System.out.print("Song's album: ");
-            var album = scanner.nextLine();
+            Optional<Artist> artistOpt = searchArtist(artist);
+            if (artistOpt.isPresent()) {
+                System.out.println(artistOpt.get());
+            }
 
-            System.out.print("Song's genre (rock, mpb, country, pagode): ");
-            var genre = scanner.nextLine().toLowerCase();
+//            System.out.print("Song's album: ");
+//            var album = scanner.nextLine();
+//
+//            System.out.print("Song's genre (rock, mpb, country, pagode): ");
+//            var genre = scanner.nextLine().toLowerCase();
 
             System.out.print("Register another song? (Y/N): ");
             registerNew = scanner.nextLine();
@@ -104,7 +109,7 @@ public class Main {
             // 2- incluir música na lista do artista
             // 3- definir atributo artista no objeto música
 
-            repository.save(new Song(title, artist, album, Genre.fromString(genre)));
+            //repository.save(new Song(title, artist, album, Genre.fromString(genre)));
         } while (registerNew.equalsIgnoreCase("Y"));
 
     }
