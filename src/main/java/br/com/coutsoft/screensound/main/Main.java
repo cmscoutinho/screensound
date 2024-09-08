@@ -57,6 +57,10 @@ public class Main {
 
     }
 
+    private Artist searchArtist(String artistStr) {
+
+    }
+
     private void registerArtist() {
         String registerNew;
 
@@ -93,6 +97,12 @@ public class Main {
 
             System.out.print("Register another song? (Y/N): ");
             registerNew = scanner.nextLine();
+
+
+
+            // 1- pesquisar artista
+            // 2- incluir música na lista do artista
+            // 3- definir atributo artista no objeto música
 
             repository.save(new Song(title, artist, album, Genre.fromString(genre)));
         } while (registerNew.equalsIgnoreCase("Y"));
