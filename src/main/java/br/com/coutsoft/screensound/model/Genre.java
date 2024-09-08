@@ -4,7 +4,8 @@ public enum Genre {
     ROCK("rock"),
     MPB("mpb"),
     COUNTRY("sertanejo") ,
-    PAGODE("pagode");
+    PAGODE("pagode"), 
+    POP("pop");
 
     private String songGenre;
 
