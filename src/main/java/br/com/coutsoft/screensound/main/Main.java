@@ -12,10 +12,12 @@ public class Main {
 
     Scanner scanner = new Scanner(System.in);
 
-    private ArtistRepository repository;
+    private ArtistRepository artistRepository;
+    private SongRepository songRepository;
 
-    public Main(ArtistRepository repository, SongRepository songRepository) {
-        this.repository = repository;
+    public Main(ArtistRepository artistRepository, SongRepository songRepository) {
+        this.artistRepository = artistRepository;
+        this.songRepository = songRepository;
     }
 
     public void showMenu() {
@@ -64,7 +66,7 @@ public class Main {
     }
 
     private Optional<Artist> searchArtist(String artistStr) {
-        Optional<Artist> artistOpt = repository.findByNameIgnoreCase(artistStr);
+        Optional<Artist> artistOpt = artistRepository.findByNameIgnoreCase(artistStr);
         return artistOpt;
     }
 
@@ -82,7 +84,7 @@ public class Main {
             registerNew = scanner.nextLine();
 
             // TODO: modify to artistRepository
-            repository.save(new Artist(name, type));
+            artistRepository.save(new Artist(name, type));
         } while (registerNew.equalsIgnoreCase("Y"));
 
     }
@@ -116,7 +118,7 @@ public class Main {
             registerNew = scanner.nextLine();
 
             // TODO: modify to songRepository
-            repository.save(new Song(title, artist, album, Genre.fromString(genre)));
+            artistRepository.save(new Song(title, artist, album, Genre.fromString(genre)));
         } while (registerNew.equalsIgnoreCase("Y"));
 
     }
