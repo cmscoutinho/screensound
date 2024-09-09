@@ -88,35 +88,31 @@ public class Main {
         String registerNew;
 
         do {
+            Artist artist;
+
             System.out.print("Song's title: ");
             var title = scanner.nextLine();
 
             System.out.print("Artist: ");
-            var artist = scanner.nextLine();
+            var artistName = scanner.nextLine();
 
-            Optional<Artist> artistOpt = searchArtist(artist);
+            Optional<Artist> artistOpt = searchArtist(artistName);
             if (artistOpt.isPresent()) {
-                System.out.println(artistOpt.get());
+                artist = artistOpt.get();
             } else {
                 throw new ArtistNotFoundException();
             }
 
-//            System.out.print("Song's album: ");
-//            var album = scanner.nextLine();
-//
-//            System.out.print("Song's genre (rock, mpb, country, pagode): ");
-//            var genre = scanner.nextLine().toLowerCase();
+            System.out.print("Song's album: ");
+            var album = scanner.nextLine();
+
+            System.out.print("Song's genre (rock, mpb, country, pagode, pop): ");
+            var genre = scanner.nextLine().toLowerCase();
 
             System.out.print("Register another song? (Y/N): ");
             registerNew = scanner.nextLine();
 
-
-
-            // 1- pesquisar artista
-            // 2- incluir música na lista do artista
-            // 3- definir atributo artista no objeto música
-
-            //repository.save(new Song(title, artist, album, Genre.fromString(genre)));
+            repository.save(new Song(title, artist, album, Genre.fromString(genre)));
         } while (registerNew.equalsIgnoreCase("Y"));
 
     }
