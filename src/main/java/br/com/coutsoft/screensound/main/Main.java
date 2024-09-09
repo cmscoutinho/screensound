@@ -2,6 +2,8 @@ package br.com.coutsoft.screensound.main;
 
 import br.com.coutsoft.screensound.exception.ArtistNotFoundException;
 import br.com.coutsoft.screensound.model.Artist;
+import br.com.coutsoft.screensound.model.Genre;
+import br.com.coutsoft.screensound.model.Song;
 import br.com.coutsoft.screensound.repository.ArtistRepository;
 import br.com.coutsoft.screensound.repository.SongRepository;
 
@@ -104,7 +106,6 @@ public class Main {
             Optional<Artist> artistOpt = searchArtist(artistName);
             if (artistOpt.isPresent()) {
                 artist = artistOpt.get();
-                artist.
             } else {
                 throw new ArtistNotFoundException();
             }
@@ -118,8 +119,13 @@ public class Main {
             System.out.print("Register another song? (Y/N): ");
             registerNew = scanner.nextLine();
 
+            Song song = new Song(title, artist, album, Genre.fromString(genre));
+            artist.addSong(song);
+
             // TODO: modify to songRepository
-            artistRepository.save(new Song(title, artist, album, Genre.fromString(genre)));
+            artistRepository.save(artist);
+            songRepository.save(song);
+
         } while (registerNew.equalsIgnoreCase("Y"));
 
     }
