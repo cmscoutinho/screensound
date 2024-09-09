@@ -56,6 +56,7 @@ public class Main {
                 case 5:
                     break;
                 case 9:
+                    System.out.println("Goodbye!");
                     break;
             }
         } while (option != 9);
@@ -80,6 +81,7 @@ public class Main {
             System.out.print("Register another artist? (Y/N): ");
             registerNew = scanner.nextLine();
 
+            // TODO: modify to artistRepository
             repository.save(new Artist(name, type));
         } while (registerNew.equalsIgnoreCase("Y"));
 
@@ -113,6 +115,7 @@ public class Main {
             System.out.print("Register another song? (Y/N): ");
             registerNew = scanner.nextLine();
 
+            // TODO: modify to songRepository
             repository.save(new Song(title, artist, album, Genre.fromString(genre)));
         } while (registerNew.equalsIgnoreCase("Y"));
 
