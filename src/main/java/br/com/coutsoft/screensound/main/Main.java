@@ -3,6 +3,7 @@ package br.com.coutsoft.screensound.main;
 import br.com.coutsoft.screensound.exception.ArtistNotFoundException;
 import br.com.coutsoft.screensound.model.Artist;
 import br.com.coutsoft.screensound.repository.ArtistRepository;
+import br.com.coutsoft.screensound.repository.SongRepository;
 
 import java.util.Optional;
 import java.util.Scanner;
@@ -13,7 +14,7 @@ public class Main {
 
     private ArtistRepository repository;
 
-    public Main(ArtistRepository repository) {
+    public Main(ArtistRepository repository, SongRepository songRepository) {
         this.repository = repository;
     }
 
