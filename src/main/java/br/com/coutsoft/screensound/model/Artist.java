@@ -51,6 +51,10 @@ public class Artist {
         this.type = type;
     }
 
+    public void addSong(Song song) {
+        this.songs.add(song);
+    }
+
     @Override
     public String toString() {
         return this.name + " | " + this.type;

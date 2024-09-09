@@ -83,7 +83,7 @@ public class Main {
             System.out.print("Register another artist? (Y/N): ");
             registerNew = scanner.nextLine();
 
-            // TODO: modify to artistRepository
+            // TODO: create enum for the artist type
             artistRepository.save(new Artist(name, type));
         } while (registerNew.equalsIgnoreCase("Y"));
 
@@ -104,6 +104,7 @@ public class Main {
             Optional<Artist> artistOpt = searchArtist(artistName);
             if (artistOpt.isPresent()) {
                 artist = artistOpt.get();
+                artist.
             } else {
                 throw new ArtistNotFoundException();
             }
