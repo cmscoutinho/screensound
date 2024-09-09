@@ -122,7 +122,6 @@ public class Main {
             Song song = new Song(title, artist, album, Genre.fromString(genre));
             artist.addSong(song);
 
-            // TODO: modify to songRepository
             artistRepository.save(artist);
             songRepository.save(song);
 

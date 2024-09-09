@@ -13,6 +13,7 @@ public class ScreensoundApplication implements CommandLineRunner {
 
 	@Autowired
 	private ArtistRepository artistRepository;
+	@Autowired
 	private SongRepository songRepository;
 
 	public static void main(String[] args) {
