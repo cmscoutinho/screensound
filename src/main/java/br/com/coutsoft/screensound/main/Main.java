@@ -86,6 +86,7 @@ public class Main {
             registerNew = scanner.nextLine();
 
             // TODO: create enum for the artist type
+            // TODO: check if artist already exists
             artistRepository.save(new Artist(name, type));
         } while (registerNew.equalsIgnoreCase("Y"));
 
@@ -123,7 +124,7 @@ public class Main {
             artist.addSong(song);
 
             artistRepository.save(artist);
-            songRepository.save(song);
+            //songRepository.save(song);
 
         } while (registerNew.equalsIgnoreCase("Y"));
 
