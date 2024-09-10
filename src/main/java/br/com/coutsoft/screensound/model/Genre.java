@@ -13,12 +13,12 @@ public enum Genre {
         this.songGenre = songGenre;
     }
 
-    public static Genre fromString(String songGenre) {
+    public static Genre fromString(String text) {
         for (Genre genre : Genre.values()) {
-            if (genre.songGenre.equalsIgnoreCase(songGenre)) {
+            if (genre.songGenre.equalsIgnoreCase(text)) {
                 return genre;
             }
         }
-        throw new EnumConstantNotPresentException(Genre.class, songGenre);
+        throw new EnumConstantNotPresentException(Genre.class, text);
     }
 }

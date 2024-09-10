@@ -13,6 +13,7 @@ public class Song {
     @ManyToOne
     private Artist artist;
     private String album;
+    @Enumerated(EnumType.STRING)
     private Genre genre;
 
 
