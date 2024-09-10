@@ -16,6 +16,7 @@ public class Main {
 
     private ArtistRepository artistRepository;
     private SongRepository songRepository;
+    private Optional<Artist> artistOpt;
 
     public Main(ArtistRepository artistRepository, SongRepository songRepository) {
         this.artistRepository = artistRepository;
@@ -67,7 +68,7 @@ public class Main {
 
     }
 
-    private Optional<Artist> searchArtist(String artistStr) {
+    private Optional<Artist> artistExists(String artistStr) {
         Optional<Artist> artistOpt = artistRepository.findByNameIgnoreCase(artistStr);
         return artistOpt;
     }
@@ -104,7 +105,7 @@ public class Main {
             System.out.print("Artist: ");
             var artistName = scanner.nextLine();
 
-            Optional<Artist> artistOpt = searchArtist(artistName);
+            artistOpt = artistExists(artistName);
             if (artistOpt.isPresent()) {
                 artist = artistOpt.get();
             } else {
