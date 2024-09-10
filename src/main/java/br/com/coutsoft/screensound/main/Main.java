@@ -5,7 +5,6 @@ import br.com.coutsoft.screensound.model.Artist;
 import br.com.coutsoft.screensound.model.Genre;
 import br.com.coutsoft.screensound.model.Song;
 import br.com.coutsoft.screensound.repository.ArtistRepository;
-import br.com.coutsoft.screensound.repository.SongRepository;
 
 import java.util.Optional;
 import java.util.Scanner;
@@ -15,12 +14,10 @@ public class Main {
     Scanner scanner = new Scanner(System.in);
 
     private ArtistRepository artistRepository;
-    private SongRepository songRepository;
     private Optional<Artist> artistOpt;
 
-    public Main(ArtistRepository artistRepository, SongRepository songRepository) {
+    public Main(ArtistRepository artistRepository) {
         this.artistRepository = artistRepository;
-        this.songRepository = songRepository;
     }
 
     public void showMenu() {
