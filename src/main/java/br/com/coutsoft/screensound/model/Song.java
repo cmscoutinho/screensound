@@ -14,17 +14,17 @@ public class Song {
     private Artist artist;
     private String album;
     @Enumerated(EnumType.STRING)
-    private Genre genre;
+    private SongGenre songGenre;
 
 
     public Song() {
     }
 
-    public Song(String title, Artist artist, String album, Genre genre) {
+    public Song(String title, Artist artist, String album, SongGenre songGenre) {
         this.title = title;
         this.artist = artist;
         this.album = album;
-        this.genre = genre;
+        this.songGenre = songGenre;
     }
 
     public Long getId() {
@@ -59,16 +59,16 @@ public class Song {
         this.album = album;
     }
 
-    public Genre getGenre() {
-        return genre;
+    public SongGenre getGenre() {
+        return songGenre;
     }
 
-    public void setGenre(Genre genre) {
-        this.genre = genre;
+    public void setGenre(SongGenre songGenre) {
+        this.songGenre = songGenre;
     }
 
     @Override
     public String toString() {
-        return this.title + " by " + this.artist + ". " + this.genre;
+        return this.title + " by " + this.artist + ". " + this.songGenre;
     }
 }

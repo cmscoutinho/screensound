@@ -2,7 +2,7 @@ package br.com.coutsoft.screensound.main;
 
 import br.com.coutsoft.screensound.exception.ArtistNotFoundException;
 import br.com.coutsoft.screensound.model.Artist;
-import br.com.coutsoft.screensound.model.Genre;
+import br.com.coutsoft.screensound.model.SongGenre;
 import br.com.coutsoft.screensound.model.Song;
 import br.com.coutsoft.screensound.repository.ArtistRepository;
 
@@ -118,7 +118,7 @@ public class Main {
             System.out.print("Register another song? (Y/N): ");
             registerNew = scanner.nextLine();
 
-            Song song = new Song(title, artist, album, Genre.fromString(genre));
+            Song song = new Song(title, artist, album, SongGenre.fromString(genre));
             artist.addSong(song);
 
             artistRepository.save(artist);
