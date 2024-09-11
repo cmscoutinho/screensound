@@ -58,6 +58,7 @@ public class Main {
                     }
                     break;
                 case 3:
+                    listSongs();
                     break;
                 case 4:
                     break;
@@ -135,5 +136,8 @@ public class Main {
 
         } while (registerNew.equalsIgnoreCase("Y"));
 
+    }
+
+    private void listSongs() {
     }
 }
