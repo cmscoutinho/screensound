@@ -71,8 +71,8 @@ public class Main {
 
     }
 
-    private Optional<Artist> searchArtist(String artistStr) {
-        Optional<Artist> artistOpt = artistRepository.findByNameIgnoreCase(artistStr);
+    private Optional<Artist> searchArtist(String name) {
+        Optional<Artist> artistOpt = artistRepository.findByNameIgnoreCase(name);
         return artistOpt;
     }
 
@@ -93,7 +93,6 @@ public class Main {
                 System.out.print("Register another artist? (Y/N): ");
                 registerNew = scanner.nextLine();
 
-                // TODO: check if artist already exists
                 artistRepository.save(new Artist(name, ArtistType.fromString(type)));
             }
         } while (registerNew.equalsIgnoreCase("Y"));
