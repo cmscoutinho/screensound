@@ -78,15 +78,19 @@ public class Main {
             System.out.print("Artist's name: ");
             var name = scanner.nextLine();
 
-            System.out.print("Artist type (solo, duo, band): ");
-            var type = scanner.nextLine();
+            if (searchArtist(name).isPresent()) {
+                throw new ArtistNotFoundException();
+            } else {
 
-            System.out.print("Register another artist? (Y/N): ");
-            registerNew = scanner.nextLine();
+                System.out.print("Artist type (solo, duo, band): ");
+                var type = scanner.nextLine();
 
-            // TODO: create enum for the artist type
-            // TODO: check if artist already exists
-            artistRepository.save(new Artist(name, ArtistType.fromString(type)));
+                System.out.print("Register another artist? (Y/N): ");
+                registerNew = scanner.nextLine();
+
+                // TODO: check if artist already exists
+                artistRepository.save(new Artist(name, ArtistType.fromString(type)));
+            }
         } while (registerNew.equalsIgnoreCase("Y"));
 
     }
