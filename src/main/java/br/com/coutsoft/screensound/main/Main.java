@@ -84,7 +84,7 @@ public class Main {
             var name = scanner.nextLine();
 
             if (searchArtist(name).isPresent()) {
-                throw new ArtistNotFoundException();
+                throw new ArtistExistsException();
             } else {
 
                 System.out.print("Artist type (solo, duo, band): ");
