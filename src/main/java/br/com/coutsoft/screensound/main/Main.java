@@ -1,5 +1,6 @@
 package br.com.coutsoft.screensound.main;
 
+import br.com.coutsoft.screensound.exception.ArtistExistsException;
 import br.com.coutsoft.screensound.exception.ArtistNotFoundException;
 import br.com.coutsoft.screensound.model.Artist;
 import br.com.coutsoft.screensound.model.ArtistType;
@@ -43,7 +44,11 @@ public class Main {
 
             switch (option) {
                 case 1:
-                    registerArtist();
+                    try {
+                        registerArtist();
+                    } catch (ArtistExistsException e) {
+                        e.getMessage();
+                    }
                     break;
                 case 2:
                     try {
