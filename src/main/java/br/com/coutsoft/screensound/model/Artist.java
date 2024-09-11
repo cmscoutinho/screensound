@@ -13,7 +13,8 @@ public class Artist {
     private Long id;
     @Column(unique = true)
     private String name;
-    private String type;
+    @Enumerated(EnumType.STRING)
+    private ArtistType type;
 
     @OneToMany(mappedBy = "artist", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Song> songs = new ArrayList<>();
@@ -22,7 +23,7 @@ public class Artist {
 
     }
 
-    public Artist(String name, String type) {
+    public Artist(String name, ArtistType type) {
         this.name = name;
         this.type = type;
     }
@@ -43,11 +44,11 @@ public class Artist {
         this.name = name;
     }
 
-    public String getType() {
+    public ArtistType getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(ArtistType type) {
         this.type = type;
     }
 
