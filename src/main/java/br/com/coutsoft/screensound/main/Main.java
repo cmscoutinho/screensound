@@ -2,8 +2,9 @@ package br.com.coutsoft.screensound.main;
 
 import br.com.coutsoft.screensound.exception.ArtistNotFoundException;
 import br.com.coutsoft.screensound.model.Artist;
-import br.com.coutsoft.screensound.model.SongGenre;
+import br.com.coutsoft.screensound.model.ArtistType;
 import br.com.coutsoft.screensound.model.Song;
+import br.com.coutsoft.screensound.model.SongGenre;
 import br.com.coutsoft.screensound.repository.ArtistRepository;
 
 import java.util.Optional;
@@ -85,7 +86,7 @@ public class Main {
 
             // TODO: create enum for the artist type
             // TODO: check if artist already exists
-            artistRepository.save(new Artist(name, type));
+            artistRepository.save(new Artist(name, ArtistType.fromString(type)));
         } while (registerNew.equalsIgnoreCase("Y"));
 
     }
