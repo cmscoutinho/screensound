@@ -46,7 +46,6 @@ public class Main {
             option = scanner.nextInt();
             scanner.nextLine();
 
-            // TODO: use println() to display e.getMessage();
             switch (option) {
                 case 1:
                     try {
@@ -144,6 +143,7 @@ public class Main {
     }
 
     private void listSongs() {
-        List<Song> allSongs =
+        List<Song> allSongs = songRepository.findAll();
+        allSongs.forEach(System.out::println);
     }
 }
