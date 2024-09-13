@@ -83,20 +83,21 @@ public class Main {
         StringBuilder builder = new StringBuilder();
 
         for (String nameIt : nameArr) {
-            String aux = nameIt.substring(0,1).toUpperCase() + nameIt.substring(1).toLowerCase();
-            builder.append(aux);
-            builder.append(" ");
+            builder.append(nameIt.substring(0,1).toUpperCase())
+                    .append(nameIt.substring(1).toLowerCase())
+                    .append(" ");
         }
 
-        String retString = builder.toString();
+        return builder.toString().trim();
+    }
 
-        return retString.substring(0, retString.length()-1);
+    private String readArtist() {
+        System.out.print("Artist's name: ");
+        return scanner.nextLine();
     }
 
     private Optional<Artist> searchArtist() {
-        System.out.print("Artist's name: ");
-        var name = scanner.nextLine();
-
+        var name = readArtist();
         Optional<Artist> artistOpt = artistRepository.findByNameIgnoreCase(name);
         return artistOpt;
     }
