@@ -78,7 +78,21 @@ public class Main {
 
     }
 
-    // TODO: place input of the artist's name inside searchArtist()
+    private String capitalizeName(String name) {
+        String[] nameArr = name.split(" ");
+        StringBuilder builder = new StringBuilder();
+
+        for (String nameIt : nameArr) {
+            String aux = nameIt.substring(0,1).toUpperCase() + nameIt.substring(1).toLowerCase();
+            builder.append(aux);
+            builder.append(" ");
+        }
+
+        String retString = builder.toString();
+
+        return retString.substring(0, retString.length()-1);
+    }
+
     private Optional<Artist> searchArtist() {
         System.out.print("Artist's name: ");
         var name = scanner.nextLine();
