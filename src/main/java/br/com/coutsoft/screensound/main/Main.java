@@ -175,7 +175,8 @@ public class Main {
         var artistName = readArtist();
         artistOpt = searchArtist(artistName);
         if (artistOpt.isPresent()) {
-            songsByArtist = songRepository.findAllByArtistName(artistOpt.get().getName());
+            //songsByArtist = songRepository.findAllByArtistName(artistOpt.get().getName());
+            songsByArtist = songRepository.findSongsByArtist(artistOpt.get().getName());
             songsByArtist.forEach(System.out::println);
         } else {
             throw new ArtistNotFoundException();
