@@ -65,8 +65,11 @@ public class Main {
                     listSongs();
                     break;
                 case 4:
-                    // TODO: handle artist not found exception
-                    songByArtist();
+                    try {
+                        songByArtist();
+                    } catch (ArtistNotFoundException e) {
+                        System.out.println(e.getMessage());
+                    }
                     break;
                 case 5:
                     break;
