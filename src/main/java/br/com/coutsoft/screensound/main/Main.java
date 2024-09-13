@@ -8,6 +8,7 @@ import br.com.coutsoft.screensound.model.Song;
 import br.com.coutsoft.screensound.model.SongGenre;
 import br.com.coutsoft.screensound.repository.ArtistRepository;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
@@ -140,6 +141,6 @@ public class Main {
     }
 
     private void listSongs() {
-
+        List<Song> allSongs =
     }
 }

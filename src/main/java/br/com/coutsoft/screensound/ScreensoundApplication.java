@@ -13,6 +13,8 @@ public class ScreensoundApplication implements CommandLineRunner {
 	@Autowired
 	private ArtistRepository artistRepository;
 
+
+
 	public static void main(String[] args) {
 		SpringApplication.run(ScreensoundApplication.class, args);
 	}
