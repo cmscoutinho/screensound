@@ -65,6 +65,7 @@ public class Main {
                     listSongs();
                     break;
                 case 4:
+                    // TODO: handle artist not found exception
                     songByArtist();
                     break;
                 case 5:
@@ -77,6 +78,7 @@ public class Main {
 
     }
 
+    // TODO: place input of the artist's name inside searchArtist()
     private Optional<Artist> searchArtist(String name) {
         Optional<Artist> artistOpt = artistRepository.findByNameIgnoreCase(name);
         return artistOpt;
@@ -149,5 +151,21 @@ public class Main {
     }
 
     private void songByArtist() {
+        Artist artist;
+        List<Song> songsByArtist;
+
+        System.out.print("Artist's name: ");
+        var artistName = scanner.nextLine();
+
+        artistOpt = searchArtist(artistName);
+        if (artistOpt.isPresent()) {
+            artist = artistOpt.get();
+        } else {
+            throw new ArtistNotFoundException();
+        }
+
+        songsByArtist = songRepository.findAllByArtistName(artistName);
+        songsByArtist.forEach(System.out::println);
+
     }
 }
