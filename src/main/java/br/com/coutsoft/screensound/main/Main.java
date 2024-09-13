@@ -96,16 +96,16 @@ public class Main {
         return scanner.nextLine();
     }
 
-    private Optional<Artist> searchArtist() {
-        var name = readArtist();
-        Optional<Artist> artistOpt = artistRepository.findByNameIgnoreCase(name);
+    private Optional<Artist> searchArtist(String artistName) {
+        Optional<Artist> artistOpt = artistRepository.findByNameIgnoreCase(artistName);
         return artistOpt;
     }
 
     private void registerArtist() {
         String registerNew;
 
-        artistOpt = searchArtist();
+        var artistName = readArtist();
+        artistOpt = searchArtist(artistName);
         do {
 
             if (artistOpt.isPresent()) {
@@ -118,7 +118,7 @@ public class Main {
                 System.out.print("Register another artist? (Y/N): ");
                 registerNew = scanner.nextLine();
 
-                artistRepository.save(new Artist(capitalizeName(artistOpt.get().getName()), ArtistType.fromString(type)));
+                artistRepository.save(new Artist(capitalizeName(artistName), ArtistType.fromString(type)));
             }
         } while (registerNew.equalsIgnoreCase("Y"));
 
@@ -134,7 +134,9 @@ public class Main {
             System.out.print("Song's title: ");
             var title = scanner.nextLine();
 
-            artistOpt = searchArtist();
+            var artistName = readArtist();
+            artistOpt = searchArtist(artistName);
+
             if (artistOpt.isPresent()) {
                 artist = artistOpt.get();
             } else {
@@ -168,7 +170,8 @@ public class Main {
     private void songByArtist() {
         List<Song> songsByArtist;
 
-        artistOpt = searchArtist();
+        var artistName = readArtist();
+        artistOpt = searchArtist(artistName);
         if (artistOpt.isPresent()) {
             songsByArtist = songRepository.findAllByArtistName(artistOpt.get().getName());
             songsByArtist.forEach(System.out::println);
