@@ -58,6 +58,6 @@ public class Artist {
 
     @Override
     public String toString() {
-        return this.name + " | " + this.type;
+        return this.name + " (" + this.type + ")";
     }
 }
