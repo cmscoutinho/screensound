@@ -67,6 +67,7 @@ public class Song {
         this.songGenre = songGenre;
     }
 
+    // TODO: include album
     @Override
     public String toString() {
         return "\"" + this.title + "\" by " + this.artist + ". Genre: " + this.songGenre;

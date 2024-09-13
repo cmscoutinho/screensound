@@ -79,7 +79,10 @@ public class Main {
     }
 
     // TODO: place input of the artist's name inside searchArtist()
-    private Optional<Artist> searchArtist(String name) {
+    private Optional<Artist> searchArtist() {
+        System.out.print("Artist's name: ");
+        var name = scanner.nextLine();
+
         Optional<Artist> artistOpt = artistRepository.findByNameIgnoreCase(name);
         return artistOpt;
     }
@@ -87,11 +90,10 @@ public class Main {
     private void registerArtist() {
         String registerNew;
 
+        artistOpt = searchArtist();
         do {
-            System.out.print("Artist's name: ");
-            var name = scanner.nextLine();
 
-            if (searchArtist(name).isPresent()) {
+            if (artistOpt.isPresent()) {
                 throw new ArtistExistsException();
             } else {
 
@@ -101,7 +103,7 @@ public class Main {
                 System.out.print("Register another artist? (Y/N): ");
                 registerNew = scanner.nextLine();
 
-                artistRepository.save(new Artist(name, ArtistType.fromString(type)));
+                artistRepository.save(new Artist(artistOpt.get().getName(), ArtistType.fromString(type)));
             }
         } while (registerNew.equalsIgnoreCase("Y"));
 
@@ -113,13 +115,11 @@ public class Main {
         do {
             Artist artist;
 
+            // TODO: capitalize song and artist before registration
             System.out.print("Song's title: ");
             var title = scanner.nextLine();
 
-            System.out.print("Artist: ");
-            var artistName = scanner.nextLine();
-
-            artistOpt = searchArtist(artistName);
+            artistOpt = searchArtist();
             if (artistOpt.isPresent()) {
                 artist = artistOpt.get();
             } else {
@@ -151,21 +151,16 @@ public class Main {
     }
 
     private void songByArtist() {
-        Artist artist;
         List<Song> songsByArtist;
 
-        System.out.print("Artist's name: ");
-        var artistName = scanner.nextLine();
-
-        artistOpt = searchArtist(artistName);
+        artistOpt = searchArtist();
         if (artistOpt.isPresent()) {
-            artist = artistOpt.get();
+            songsByArtist = songRepository.findAllByArtistName(artistOpt.get().getName());
+            songsByArtist.forEach(System.out::println);
         } else {
             throw new ArtistNotFoundException();
         }
 
-        songsByArtist = songRepository.findAllByArtistName(artistName);
-        songsByArtist.forEach(System.out::println);
 
     }
 }
