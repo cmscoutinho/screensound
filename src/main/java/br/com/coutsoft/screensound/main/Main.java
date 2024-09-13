@@ -42,19 +42,20 @@ public class Main {
             option = scanner.nextInt();
             scanner.nextLine();
 
+            // TODO: use println() to display e.getMessage();
             switch (option) {
                 case 1:
                     try {
                         registerArtist();
                     } catch (ArtistExistsException e) {
-                        e.getMessage();
+                        System.out.println(e.getMessage());
                     }
                     break;
                 case 2:
                     try {
                         registerSong();
                     } catch (ArtistNotFoundException e) {
-                        e.getMessage();
+                        System.out.println(e.getMessage());
                     }
                     break;
                 case 3:
@@ -139,5 +140,6 @@ public class Main {
     }
 
     private void listSongs() {
+
     }
 }
