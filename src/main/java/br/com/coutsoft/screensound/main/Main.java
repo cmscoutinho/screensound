@@ -65,6 +65,7 @@ public class Main {
                     listSongs();
                     break;
                 case 4:
+                    songByArtist();
                     break;
                 case 5:
                     break;
@@ -145,5 +146,8 @@ public class Main {
     private void listSongs() {
         List<Song> allSongs = songRepository.findAll();
         allSongs.forEach(System.out::println);
+    }
+
+    private void songByArtist() {
     }
 }
