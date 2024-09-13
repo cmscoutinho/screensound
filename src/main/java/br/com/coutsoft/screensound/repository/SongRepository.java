@@ -7,7 +7,4 @@ import java.util.List;
 
 public interface SongRepository extends JpaRepository<Song, Long> {
     List<Song> findAllByArtistName(String artistName);
-
-    // TODO: create method that retrieves all songs from a given artist
-
 }

@@ -96,7 +96,7 @@ public class Main {
 
     private String readArtist() {
         System.out.print("Artist's name: ");
-        return scanner.nextLine();
+        return capitalizeName(scanner.nextLine());
     }
 
     private Optional<Artist> searchArtist(String artistName) {
@@ -133,9 +133,8 @@ public class Main {
         do {
             Artist artist;
 
-            // TODO: capitalize song and artist before registration
             System.out.print("Song's title: ");
-            var title = scanner.nextLine();
+            var title = capitalizeName(scanner.nextLine());
 
             var artistName = readArtist();
             artistOpt = searchArtist(artistName);
@@ -147,7 +146,7 @@ public class Main {
             }
 
             System.out.print("Song's album: ");
-            var album = scanner.nextLine();
+            var album = capitalizeName(scanner.nextLine());
 
             System.out.print("Song's genre (rock, mpb, country, pagode, pop): ");
             var genre = scanner.nextLine().toLowerCase();
