@@ -117,7 +117,7 @@ public class Main {
                 System.out.print("Register another artist? (Y/N): ");
                 registerNew = scanner.nextLine();
 
-                artistRepository.save(new Artist(artistOpt.get().getName(), ArtistType.fromString(type)));
+                artistRepository.save(new Artist(capitalizeName(artistOpt.get().getName()), ArtistType.fromString(type)));
             }
         } while (registerNew.equalsIgnoreCase("Y"));
 
@@ -149,7 +149,7 @@ public class Main {
             System.out.print("Register another song? (Y/N): ");
             registerNew = scanner.nextLine();
 
-            Song song = new Song(title, artist, album, SongGenre.fromString(genre));
+            Song song = new Song(capitalizeName(title), artist, album, SongGenre.fromString(genre));
             artist.addSong(song);
 
             artistRepository.save(artist);
