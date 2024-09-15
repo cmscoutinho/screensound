@@ -52,14 +52,14 @@ public class Main {
                     try {
                         registerArtist();
                     } catch (ArtistExistsException e) {
-                        System.out.println(e.getMessage());
+                        System.err.println(e.getMessage());
                     }
                     break;
                 case 2:
                     try {
                         registerSong();
                     } catch (ArtistNotFoundException e) {
-                        System.out.println(e.getMessage());
+                        System.err.println(e.getMessage());
                     }
                     break;
                 case 3:
@@ -69,11 +69,12 @@ public class Main {
                     try {
                         songByArtist();
                     } catch (ArtistNotFoundException e) {
-                        System.out.println(e.getMessage());
+                        System.err.println(e.getMessage());
                     }
                     break;
                 case 5:
-                    ChatPost.test();
+                    var name = scanner.nextLine();
+                    ChatPost.test(name);
                     break;
                 case 9:
                     System.out.println("Goodbye!");

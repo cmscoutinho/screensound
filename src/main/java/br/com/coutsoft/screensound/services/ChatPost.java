@@ -4,18 +4,30 @@ import com.cohere.api.Cohere;
 import com.cohere.api.requests.ChatRequest;
 import com.cohere.api.types.NonStreamedChatResponse;
 
-// TODO: set key in local environment variable
 // TODO: filter response JSON
 // TODO: translate response to brazilian portuguese
 public class ChatPost {
-    public static void test() {
-        Cohere cohere = Cohere.builder().token(System.getenv("COHERE_KEY")).build();
+    public static void test(String query) {
+        // Use environment variable for token security
+        String token = System.getenv("COHERE_KEY"); // Make sure you set this environment variable
 
-        NonStreamedChatResponse response = cohere.chat(
-                ChatRequest.builder()
-                        .message("What year was Bruce Dickinson born?").build());
+        if (token == null || token.isEmpty()) {
+            System.out.println("API token is not set.");
+            return;
+        }
 
-        System.out.println(response);
+        Cohere cohere = Cohere.builder().token(token).build();
+
+        try {
+            NonStreamedChatResponse response = cohere.chat(
+                    ChatRequest.builder()
+                            .message(query)  // Use the 'query' parameter
+                            .build());
+
+            System.out.println(response.getText());  // Printing the response text
+        } catch (Exception e) {
+            System.err.println("An error occurred while making the request: " + e.getMessage());
+        }
     }
 }
 
