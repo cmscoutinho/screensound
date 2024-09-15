@@ -73,7 +73,9 @@ public class Main {
                     }
                     break;
                 case 5:
-                    CohereConnector.cohereConnect(readArtist());
+                    infoAboutArtist();
+                    String response = CohereConnector.cohereConnect(readArtist());
+                    
                     break;
                 case 9:
                     System.out.println("Goodbye!");
@@ -83,6 +85,9 @@ public class Main {
             }
         } while (option != 9);
 
+    }
+
+    private void infoAboutArtist() {
     }
 
     private String capitalizeName(String name) {
