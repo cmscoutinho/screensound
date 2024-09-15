@@ -47,8 +47,7 @@ public class CohereConnector {
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
             // Print the response
-            System.out.println("Response status code: " + response.statusCode());
-            System.out.println("Response body: " + response.body());
+            return response.statusCode() == 200 ? response.body() : "Invalid request!";
 
         } catch (InterruptedException | IOException e) {
             e.printStackTrace();
