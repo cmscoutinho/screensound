@@ -8,6 +8,7 @@ import br.com.coutsoft.screensound.model.Song;
 import br.com.coutsoft.screensound.model.SongGenre;
 import br.com.coutsoft.screensound.repository.ArtistRepository;
 import br.com.coutsoft.screensound.repository.SongRepository;
+import br.com.coutsoft.screensound.services.ChatPost;
 
 import java.util.List;
 import java.util.Optional;
@@ -72,6 +73,7 @@ public class Main {
                     }
                     break;
                 case 5:
+                    ChatPost.test();
                     break;
                 case 9:
                     System.out.println("Goodbye!");
