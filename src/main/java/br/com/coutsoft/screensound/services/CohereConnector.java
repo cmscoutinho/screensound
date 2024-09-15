@@ -26,11 +26,11 @@ public class CohereConnector {
             String requestBody = """
                     {
                         "model": "command",
-                        "prompt": "Tell me about football.",
+                        "message": "Tell me about %s in summary.",
                         "max_tokens": 100,
                         "temperature": 0.75
                     }
-                    """;
+                    """.formatted(query);
 
             // Create an HTTP client
             HttpClient client = HttpClient.newHttpClient();
