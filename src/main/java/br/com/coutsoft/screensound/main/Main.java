@@ -2,10 +2,7 @@ package br.com.coutsoft.screensound.main;
 
 import br.com.coutsoft.screensound.exception.ArtistExistsException;
 import br.com.coutsoft.screensound.exception.ArtistNotFoundException;
-import br.com.coutsoft.screensound.model.Artist;
-import br.com.coutsoft.screensound.model.ArtistType;
-import br.com.coutsoft.screensound.model.Song;
-import br.com.coutsoft.screensound.model.SongGenre;
+import br.com.coutsoft.screensound.model.*;
 import br.com.coutsoft.screensound.repository.ArtistRepository;
 import br.com.coutsoft.screensound.repository.SongRepository;
 import br.com.coutsoft.screensound.services.CohereConnector;
@@ -188,6 +185,7 @@ public class Main {
 
     private void infoAboutArtist() {
         String response = CohereConnector.cohereConnect(readArtist());
+        new CohereMessage()
         System.out.println(response);
     }
 }
