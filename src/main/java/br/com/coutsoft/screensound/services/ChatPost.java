@@ -9,7 +9,8 @@ import com.cohere.api.types.NonStreamedChatResponse;
 public class ChatPost {
     public static void test(String query) {
         // Use environment variable for token security
-        String token = System.getenv("COHERE_KEY"); // Make sure you set this environment variable
+//        String token = System.getenv("COHERE_KEY"); // Make sure you set this environment variable
+        String token = "ER6mX4sueCwp7vfIA2GH5zqW8pXv7wYWeBdcVo7Z"; // Make sure you set this environment variable
 
         if (token == null || token.isEmpty()) {
             System.out.println("API token is not set.");
@@ -21,7 +22,7 @@ public class ChatPost {
         try {
             NonStreamedChatResponse response = cohere.chat(
                     ChatRequest.builder()
-                            .message(query)  // Use the 'query' parameter
+                            .message("Tell me about " + query)  // Use the 'query' parameter
                             .build());
 
             System.out.println(response.getText());  // Printing the response text

@@ -73,8 +73,7 @@ public class Main {
                     }
                     break;
                 case 5:
-                    var name = scanner.nextLine();
-                    ChatPost.test(name);
+                    ChatPost.test(readArtist());
                     break;
                 case 9:
                     System.out.println("Goodbye!");
