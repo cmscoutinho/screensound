@@ -8,7 +8,6 @@ import br.com.coutsoft.screensound.model.Song;
 import br.com.coutsoft.screensound.model.SongGenre;
 import br.com.coutsoft.screensound.repository.ArtistRepository;
 import br.com.coutsoft.screensound.repository.SongRepository;
-import br.com.coutsoft.screensound.services.ChatPost;
 import br.com.coutsoft.screensound.services.CohereConnector;
 
 import java.util.List;
@@ -74,8 +73,7 @@ public class Main {
                     }
                     break;
                 case 5:
-//                    ChatPost.test(readArtist());
-                    CohereConnector.cohereConnect("test");
+                    CohereConnector.cohereConnect(readArtist());
                     break;
                 case 9:
                     System.out.println("Goodbye!");
