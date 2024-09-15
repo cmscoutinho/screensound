@@ -50,7 +50,7 @@ public class CohereConnector {
             return response.statusCode() == 200 ? response.body() : "Invalid request!";
 
         } catch (InterruptedException | IOException e) {
-            e.printStackTrace();
+            System.err.println(e.getMessage());
         }
 
         return "";

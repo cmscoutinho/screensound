@@ -90,9 +90,7 @@ public class Main {
         StringBuilder builder = new StringBuilder();
 
         for (String nameIt : nameArr) {
-            builder.append(nameIt.substring(0,1).toUpperCase())
-                    .append(nameIt.substring(1).toLowerCase())
-                    .append(" ");
+            builder.append(nameIt.substring(0, 1).toUpperCase()).append(nameIt.substring(1).toLowerCase()).append(" ");
         }
 
         return builder.toString().trim();
@@ -185,7 +183,6 @@ public class Main {
         } else {
             throw new ArtistNotFoundException();
         }
-
 
     }
 
