@@ -80,6 +80,8 @@ public class Main {
                 case 9:
                     System.out.println("Goodbye!");
                     break;
+                default:
+                    System.err.println("Invalid option!");
             }
         } while (option != 9);
 
