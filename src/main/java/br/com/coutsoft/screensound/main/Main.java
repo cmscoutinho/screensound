@@ -6,6 +6,7 @@ import br.com.coutsoft.screensound.model.*;
 import br.com.coutsoft.screensound.repository.ArtistRepository;
 import br.com.coutsoft.screensound.repository.SongRepository;
 import br.com.coutsoft.screensound.services.CohereConnector;
+import br.com.coutsoft.screensound.services.DataConverter;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,6 +15,7 @@ import java.util.Scanner;
 public class Main {
 
     Scanner scanner = new Scanner(System.in);
+    private DataConverter converter = new DataConverter();
 
     private ArtistRepository artistRepository;
     private SongRepository songRepository;
@@ -184,8 +186,8 @@ public class Main {
     }
 
     private void infoAboutArtist() {
-        String response = CohereConnector.cohereConnect(readArtist());
-        new CohereMessage()
-        System.out.println(response);
+        String json = CohereConnector.cohereConnect(readArtist());
+        CohereMessage message = converter.convertJson(json, CohereMessage.class);
+        System.out.println(message.text());
     }
 }
