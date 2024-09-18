@@ -4,5 +4,5 @@ import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public record MyMemoryMessage(@JsonAlias("translatedText") String translatedText) {
+public record MyMemoryResponse(@JsonAlias("translatedText") String translatedText) {
 }
