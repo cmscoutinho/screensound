@@ -1,4 +1,8 @@
 package br.com.coutsoft.screensound.model;
 
-public record MyMemoryMessage() {
+import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+public record MyMemoryMessage(@JsonAlias("translatedText") String translatedText) {
 }
