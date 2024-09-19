@@ -6,9 +6,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class MyMemoryAPIQuery {
 
-    ObjectMapper mapper = new ObjectMapper();
 
-    public String translate(String input) {
+    public static String translate(String input) {
+
+        ObjectMapper mapper = new ObjectMapper();
         MyMemoryAPIConsumer consumer = new MyMemoryAPIConsumer();
 
         String json = consumer.consume(input);
