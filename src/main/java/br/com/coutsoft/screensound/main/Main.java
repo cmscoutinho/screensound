@@ -7,6 +7,7 @@ import br.com.coutsoft.screensound.repository.ArtistRepository;
 import br.com.coutsoft.screensound.repository.SongRepository;
 import br.com.coutsoft.screensound.services.CohereConnector;
 import br.com.coutsoft.screensound.services.DataConverter;
+import br.com.coutsoft.screensound.services.translation.MyMemoryAPIQuery;
 
 import java.util.List;
 import java.util.Optional;
@@ -188,6 +189,7 @@ public class Main {
     private void infoAboutArtist() {
         String json = CohereConnector.cohereConnect(readArtist());
         CohereMessage message = converter.convertJson(json, CohereMessage.class);
+        String translation = MyMemoryAPIQuery.translate(message.text());
         System.out.println(message.text());
     }
 }
