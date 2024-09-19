@@ -22,6 +22,6 @@ public class MyMemoryAPIQuery {
             throw new RuntimeException(e);
         }
 
-        return response.response().translatedText();
+        return response.responseData().translatedText();
     }
 }
