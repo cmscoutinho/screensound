@@ -7,7 +7,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-public class MyMemoryConnector {
+public class MyMemoryAPIConsumer {
     private final String BASE_URL = "https://api.mymemory.translated.net/get?q=";
     private final String LANG_PAIR = "en|pt-br";
 
