@@ -9,7 +9,7 @@ import java.net.http.HttpResponse;
 
 public class MyMemoryAPIConsumer {
     private final String BASE_URL = "https://api.mymemory.translated.net/get?q=";
-    private final String LANG_PAIR = "en|pt-br";
+    private final String LANG_PAIR = URLEncoder.encode("en|pt-br");
 
     public String consume(String prompt) {
         HttpClient client = HttpClient.newHttpClient();
