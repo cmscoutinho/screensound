@@ -26,8 +26,8 @@ public class CohereConnector {
             String requestBody = """
                     {
                         "model": "command",
-                        "message": "Tell me about music artist %s in summary.",
-                        "max_tokens": 100,
+                        "message": "Tell me about music artist %s in short.",
+                        "max_tokens": 30,
                         "temperature": 0.75
                     }
                     """.formatted(query);
