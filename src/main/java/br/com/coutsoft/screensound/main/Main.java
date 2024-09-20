@@ -190,6 +190,6 @@ public class Main {
         String json = CohereConnector.cohereConnect(readArtist());
         CohereMessage message = converter.convertJson(json, CohereMessage.class);
         String translation = MyMemoryAPIQuery.translate(message.text());
-        System.out.println(message.text());
+        System.out.println(translation);
     }
 }
